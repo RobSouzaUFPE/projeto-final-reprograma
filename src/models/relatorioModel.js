@@ -6,14 +6,6 @@ const relatorioSchema = new mongoose.Schema(
             type:mongoose.Schema.Types.ObjectId,
             default:mongoose.Types.ObjectId,
         },
-        nome_crianca:{
-            type:String,
-            required:true,                     
-        },
-        responsavel:{
-            type:String,
-            required: true,
-        },
         finalidade_atendimento:{
             type:String,
             required:true,
@@ -42,7 +34,12 @@ const relatorioSchema = new mongoose.Schema(
             type:mongoose.Schema.Types.ObjectId, 
             required:true,
             ref:"Profissional",
-       },
+        },
+        paciente:{
+            type:mongoose.Schema.Types.ObjectId, 
+            required:true,
+            ref:"Paciente",
+        },
     },
     {
         timestamps:true

@@ -1,4 +1,5 @@
 const profModel = require("../models/profModel");
+const pacientes = require("../models/pacienteModel")
 const relatorioModel = require("../models/relatorioModel");
 
 const findAllRelatorios = async (req, res) => {
@@ -14,7 +15,7 @@ const findNomeAtendimento = async (req, res) => {
     try {                       
         const filtroNome = await relatorioModel.find({nome_crianca:req.query.nome_crianca});
         if(!filtroNome){
-          res.status(404).json({message:'Nome informado, não encontrado.'});
+          res.status(404).json({message:'Nome informado, não foi encontrado.'});
           return 
         }
         res.status(200).json(filtroNome);
@@ -39,8 +40,7 @@ const addNewRelatorio = async (req, res) => {
     try {
       const {
         profissionalId,
-        nome_crianca,
-        responsavel,
+        pacienteId,
         finalidade_atendimento,
         relator,
         metodos,
@@ -53,17 +53,27 @@ const addNewRelatorio = async (req, res) => {
           .status(400)
           .json({ message: "Required: Informe o id do profissional." });
       };
+      if (!pacienteId) {
+        return res
+          .status(400)
+          .json({ message: "Required: Informe o id do paciente" });
+      };
   
       const findProfissional = await profModel.findById(profissionalId);
   
       if (!findProfissional) {
-        return res.status(404).json({ message: "Profissional não encontrado." });
+        return res.status(404).json({ message: "Profissional não encontrado(a)." });
       };
   
+      const findPaciente = await pacientes.findById(pacienteId);
+  
+      if (!findPaciente) {
+        return res.status(404).json({ message: "Paciente não encontrado(a)." });
+      };
+
       const newRelatorio = new relatorioModel({
         profissional: profissionalId,
-        nome_crianca,
-        responsavel,
+        paciente: pacienteId,
         finalidade_atendimento,
         relator,
         metodos,
@@ -87,8 +97,6 @@ const updateRelatorio = async (req, res) => {
       const {id} = req.params;
       const {
         profissionalId,
-        nome_crianca,
-        responsavel,
         finalidade_atendimento,
         relator,
         metodos,
@@ -107,8 +115,6 @@ const updateRelatorio = async (req, res) => {
               return res.status(404).json({ message: "Profissional não encontrado."});
         };
       };
-      findRelatorio.nome_crianca = nome_crianca || findRelatorio.nome_crianca;
-      findRelatorio.responsavel = responsavel || findRelatorio.responsavel;
       findRelatorio.finalidade_atendimento = finalidade_atendimento || findRelatorio.finalidade_atendimento;
       findRelatorio.relator = relator || findRelatorio.relator;
       findRelatorio.metodos = metodos || findRelatorio.metodos;
