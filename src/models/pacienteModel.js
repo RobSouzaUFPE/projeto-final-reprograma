@@ -9,6 +9,7 @@ const pacienteSchema = new mongoose.Schema(
         nome_crianca:{
             type:String,
             required:true,
+            unique:true,
         },
         senha:{
             type:String,

@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "test": "jest ./src/test/api.test.js",
+    "test": "jest",
     "start": "nodemon server.js",
     "lint": "npx eslint --fix",
     "swagger-autogen": "node swagger.js"

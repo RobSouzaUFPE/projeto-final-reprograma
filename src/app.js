@@ -7,6 +7,7 @@ const cors = require("cors");
 const mongoose = require("./database/dbConnectprojfinal");
 const profRoutes = require("./routes/profRoute");
 const relatorioRoutes = require("./routes/relatorioRoute");
+const pacienteRoutes = require("./routes/pacienteRoute")
 mongoose.connect(process.env.DATABASE_PROJ);
 
 const app = express();
@@ -17,8 +18,9 @@ mongoose.connect();
 
 app.use("/clinica/profissional", profRoutes);
 app.use("/clinica/relatorio", relatorioRoutes);
+app.use("/clinica/paciente", pacienteRoutes);
 
-app.use('/minha-rota-de-documentacao', swaggerUi.serve, swaggerUi.setup(swaggerFile));
+app.use('/rota-de-documentacao-clinica', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 
 module.exports = app;
