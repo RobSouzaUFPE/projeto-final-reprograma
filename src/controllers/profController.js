@@ -22,7 +22,7 @@ const findAllProfissionais = async (req, res) => {
 };
 
 const postProfissional = async (req, res) => {
-   profissionais.findOne({ nome: req.body.nome }, async function(error, profissional) {
+    profissionais.findOne({ nome: req.body.nome }, async function(error, profissional) {
     if(profissional) {
       return res.status(409).send(`O nome ${req.body.nome} já consta em nossa banco de dados.`);
     }
@@ -30,8 +30,10 @@ const postProfissional = async (req, res) => {
     if(profissional) {
       return res.status(409).send(`O email ${req.body.email} já consta em nossa banco de dados.`);
     }
+
     const senhaComHash = bcrypt.hashSync(req.body.senha, 10);
     req.body.senha = senhaComHash;  
+  
     try {
       const {
           nome,
@@ -127,6 +129,8 @@ const updateCadProfissional = async (req, res) => {
     if(!senha) {
         return res.status(401).send(`Senha não confere.`);
       }  
+    const dataEntrada= moment().format('l')
+
       try {
         const {
             nome,
@@ -134,7 +138,7 @@ const updateCadProfissional = async (req, res) => {
             senha,
             funcao,
             horario_atendimento,
-            data_entrada,
+            dataEntrada,
         } = req.body;
         const updateCadProfissional = await profissionais.findByIdAndUpdate(req.params.id, {
             nome,
@@ -142,7 +146,7 @@ const updateCadProfissional = async (req, res) => {
             senha,
             funcao,
             horario_atendimento,
-            data_entrada,
+            dataEntrada,
         });
         const savedCadProfissional = await updateCadProfissional.save();
         return res.status(201).json({ message: "Cadastro alterado com sucesso.", savedCadProfissional});

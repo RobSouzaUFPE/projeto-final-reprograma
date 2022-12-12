@@ -29,7 +29,7 @@ const profSchema = new mongoose.Schema(
                 require:true,
        },
        data_entrada:{
-            type: Number,
+            type: String,
             require:true,
        },
        },

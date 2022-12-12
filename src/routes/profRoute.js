@@ -5,7 +5,7 @@ const router = express.Router();
 
 
 router.get("/all", controller.findAllProfissionais);
-router.get("/login", controller.login)
+router.post("/login", controller.login)
 router.post ("/add", controller.postProfissional);
 router.get("/funcao", controller.findFuncao,);
 router.get("/nome", controller.findProfissionalNome);
