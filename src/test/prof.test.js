@@ -12,7 +12,7 @@ describe("Teste de API - Dados profissionais", () => {
             .set("Authorization", token)
             .expect(200)
             .expect((res) => {
-                expect(res.body.lenght).not.toBe(0);
+                expect(res.body).toBe(0);
             })
             .end((err, res) => {
                 if (err) return done(err);
@@ -26,7 +26,7 @@ test("Rota Get - clinica/profissional/id", (done) => {
         .get(`clinica/profissional/${elementId}`)
         .expect(200)
         .expect((res) => {
-            expect(res.body.profissionaisId).toEqual({
+            expect(res.body._id).toEqual({
                 nome:"Teste 11",
                 email:"teste_11@gmail.com",
                 senha: "teste 11",
@@ -35,10 +35,9 @@ test("Rota Get - clinica/profissional/id", (done) => {
                 data_entrada: 2021
             });
         })
-        .end((err,res) => {
-            if (err) return done(err);
-            done();
-        });
+        .end((err, res) =>{
+            return done();
+        }, 10000);
     });
 
 
@@ -66,99 +65,63 @@ test("Rota Get - Listar por função", (done) => {
 	        horario_atendimento:["manhã"],
             data_entrada: 2021
         })
-        .expect ("Content-Type", /json/)
         .expect(201)
+        .expect ("Content-Type", /json/)
         .end((err, res) =>{
-            profissionaisId = res.body.id;
+            elementId = res.body._id;
             return done();
         });
    }, 20000);
    
 
 describe("Login ", () => {
-    test("Login", (done) => {
+    test("Login - /clinica/profissional/login", (done) => {
         request(app)
-        .get(`/clinica/profissional/login`)
+        .post(`/clinica/profissional/login`)
         .send({
-            email: "teste6@gmail.com",
-            senha: "123456"
+            email: "teste9@gmail.com",
+            senha: "1234"
         })
-        .expect(200)
-        .expect("Content-Type", /json/)
+        .expect(200)       
         .end((err,res) => {
             token += res.body.token;
             if (err) return done(err);
             return done();
-        });
+        }, 10000);
     });
 });
 
-describe("Create Error Login", () => {
-    test("Rota Login - /clinica/profissional/add ", (done) =>{
-     request(app)
-         .get("/clinica/profissional/add")
-         .send({
-             nome:"Teste 11",
-             email:"teste_11@gmail.com",
-             senha: "teste 11",
-             funcao:"Professora",
-             horario_atendimento:["manhã"],
-             data_entrada: 2021
-         })
-         .expect ("Content-Type", /json/)
-         .expect(201)
-         .end((err, res) =>{
-             profissionaisId = res.body.id;
-             return done();
-         });
-    });
- }, 10000);
 
-describe("Create Errors", () => {
-   test("Rota Post - /clinica/profissional/add ", (done) =>{
-    request(app)
-        .post("/clinica/profissional/add")
+describe("Create Error Post", () => {
+    test("Rota Criar - /clinica/profissional/- nome repetido", (done) =>{
+        request(app)
+        .post(`/clinica/profissional/add`)
         .send({
-            nome:"Teste 11",
-            email:"teste_11@gmail.com",
+            nome: "nome",
+            email: "email",
             senha: "teste 11",
             funcao:"Professora",
 	        horario_atendimento:["manhã"],
             data_entrada: 2021
         })
-        .expect ("Content-Type", /json/)
-        .expect(201)
-        .end((err, res) =>{
-            profissionaisId = res.body.id;
-            return done();
-        });
-   });
-}, 10000);
-
-describe("Create Errors", () => {
-    test("No nome, email, senha, funcao, horario_atendimento e data_entrada", (done) => {
-        request(app)
-        .post("/clinica/profissional/add")
-        .expect(400)
+        .expect(404)
         .expect("Content-Type", /json/)
-
-        .expect((res) => {
-            expect(res.body.profissionais).toEqual(["nome", "email", "senha", "funcao", "horario_atendimento","data-entrada"]);
+        .expect(res => {
+            expect(res.body.msg).toBe(`O nome ${nome} já consta em nossa banco de dados.`)
         })
         .end((err,res) => {
-            if (err) return done(err);
+            elementId = res.body._id;
+            if (err) return done (err);
             return done();
-        });
-    }, 10000);
+        })
+    });
 });
- 
 
 test("Rota Delete - /clinica/profissional/delete/delete?id=", (done) =>{
     request(app)
         .delete(`/clinica/profissional/delete/delete?id=${elementId}`)
         .expect(200)
         .expect((res) =>{
-            console.log(res.body);
             expect(res.body.message).toBe(`Cadastro deletado com sucesso.`)
         })
         .end((err,res) =>{

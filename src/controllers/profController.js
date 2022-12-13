@@ -17,7 +17,7 @@ const findAllProfissionais = async (req, res) => {
   if (err) return res.status(401).send("não autorizado")
     //console.log(req.url);
     profissionais.find(function (err, profissionais) {
-      res.status(200).send(profissionais);
+      res.status(200).send(profissionais.sort());
   });
 };
 
@@ -160,14 +160,17 @@ const updateCadProfissional = async (req, res) => {
   
 
 const deleteDadosProfissional = async (req, res) => {
-    try {
-        const{id} = req.params;
-        const dadosProfissionalDeletado = await profissionais.findOneAndDelete(id);
-        return res.status(200).json({ message: `Cadastro deletado com sucesso.`, dadosProfissionalDeletado});
-        }catch(error){
-        console.log(error);
-        res.status(500).json({message: error.message});
-      };
+  try {
+    const {id} = req.params;
+    const findProf = await profissionais.findById(id);  
+    if (!findProf) {
+         return res.status(404).json({message: `Profissional com ${id} não encontrado`})
+        };
+    await findProf.remove();
+         res.status(200).json({message: `Dados do profissionail com ${id} deletado com sucesso.`});
+    }catch(error){
+         res.status(500).json({message: error.message });
+  };
 };
 
 module.exports = {

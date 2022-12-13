@@ -5,7 +5,7 @@ const relatorioModel = require("../models/relatorioModel");
 const findAllRelatorios = async (req, res) => {
     try {
       const allRelatorios = await relatorioModel.find().populate("profissional");
-      res.status(200).json(allRelatorios);
+      res.status(200).send(allRelatorios);
     }catch(error){
       res.status(500).json({message: error.message});
     };
@@ -97,6 +97,7 @@ const updateRelatorio = async (req, res) => {
       const {id} = req.params;
       const {
         profissionalId,
+        pacienteId,
         finalidade_atendimento,
         relator,
         metodos,
@@ -134,7 +135,7 @@ const deleteRelatorio = async (req, res) => {
     try {
       const {id} = req.params;
       const findRelatorios = await relatorioModel.findById(id);  
-      if (findRelatorios == null) {
+      if (!findRelatorios) {
            return res.status(404).json({message: `Relatório com ${id} não encontrado`})
           };
       await findRelatorios.remove();
