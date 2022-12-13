@@ -167,7 +167,7 @@ const deleteDadosProfissional = async (req, res) => {
          return res.status(404).json({message: `Profissional com ${id} não encontrado`})
         };
     await findProf.remove();
-         res.status(200).json({message: `Dados do profissionail com ${id} deletado com sucesso.`});
+         res.status(200).json({message: `Dados do profissionail deletado com sucesso.`});
     }catch(error){
          res.status(500).json({message: error.message });
   };

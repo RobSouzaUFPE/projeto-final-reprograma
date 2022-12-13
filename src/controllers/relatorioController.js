@@ -139,7 +139,7 @@ const deleteRelatorio = async (req, res) => {
            return res.status(404).json({message: `Relatório com ${id} não encontrado`})
           };
       await findRelatorios.remove();
-           res.status(200).json({message: `Relatório com ${id} deletado com sucesso.`});
+           res.status(200).json({message: `Relatório foi com deletado com sucesso.`});
       }catch(error){
            res.status(500).json({message: error.message });
     };
