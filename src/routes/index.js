@@ -1,3 +1,4 @@
+//const index = require ("../controllers/pacienteController"); 
 const express = require("express")
 const router = express.Router()
 

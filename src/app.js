@@ -8,6 +8,7 @@ const mongoose = require("./database/dbConnectprojfinal");
 const profRoutes = require("./routes/profRoute");
 const relatorioRoutes = require("./routes/relatorioRoute");
 const pacienteRoutes = require("./routes/pacienteRoute")
+const index = require("./routes/index")
 mongoose.connect(process.env.DATABASE_PROJ);
 
 const app = express();
@@ -19,6 +20,7 @@ mongoose.connect();
 app.use("/clinica/profissional", profRoutes);
 app.use("/clinica/relatorio", relatorioRoutes);
 app.use("/clinica/paciente", pacienteRoutes);
+app.use("/clinica",index)
 
 app.use('/rota-de-documentacao-clinica', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
