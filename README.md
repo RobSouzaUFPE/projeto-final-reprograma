@@ -200,7 +200,7 @@ Utilizando o método Delete para a exclusão dos dados cadastrais de um profissi
 	"message": "Dados do profissional deletado com sucesso."
 }
 ```
-![readme (1)](https://user-images.githubusercontent.com/101438321/207942408-eecea577-09e8-42b5-b49a-35e8403f4060.png)
+![readme (2)](https://user-images.githubusercontent.com/101438321/207943997-5ff88400-12b5-4321-8650-f9ffabf2cc3a.png)
 
 ```
 ## Contribuições:
