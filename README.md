@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="./images/Logo.pgn" alt="Logo" width="500">
+  <img src="assets/images/Logo.pgn" alt="Logo" width="500">
 </h1>
 
 # PROJETO FINAL 
@@ -12,12 +12,12 @@ Turma Online 19 - Todas em Tech | Back-end | 2022 | ROBERTA SOUZA
 
 Um repositório para armazenamento de informações construídas a partir da interação entre os profissionais: psicopedagogos, psicológos, fisioterapeutas e pedagogos.
 
-## Installation
+## Documentação
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+Para visualizar a documentação do projeto segue endereço do [swagger](https://swagger.io/) que foi utilizado para este fim:
 
 ```bash
-pip install foobar
+http://localhost:3030/rota-de-documentacao-clinica/
 ```
 
 ## Ferramentas utilizadas neste projeto:
@@ -75,34 +75,6 @@ pip install foobar
 ````
 <br>
 
-## Referências:
-
-```
-Links úteis:
-
-# MongoDb
-[mongodb](https://docs.mongobd.com/)
-
-# MongoDb
-[mongodb](https://docs.mongobd.com/manual/crud/)
-
-# MongoDb Atlas
-[mongodb](https://docs.atlas.mongodb.com/)
-
-# MongoDb Atlas
-[mongodb](https://docs.atlas.mongodb.com/)
-
-```
-
-## Contribuições:
-
-Solicitações pull são bem-vindas. Para mudanças importantes, abra um problema primeiro para discutir o que você gostaria de mudar.
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
-
-
 ## Rotas utilizadas:
 
 ### Get
@@ -132,4 +104,30 @@ Se eu quero atualizar os dados de um usuário no sistema, logo minha chamada PUT
     "data_nascimento": "21/08/1990",
     "escolaridade":"superior incompleto"
   }
+```
+## Contribuições:
+
+Solicitações pull são bem-vindas. Para mudanças importantes, abra um problema primeiro para discutir o que você gostaria de mudar.
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
+## Referências:
+
+```
+Links úteis:
+
+# MongoDb
+[mongodb](https://docs.mongobd.com/)
+
+# MongoDb
+[mongodb](https://docs.mongobd.com/manual/crud/)
+
+# MongoDb Atlas
+[mongodb](https://docs.atlas.mongodb.com/)
+
+# MongoDb Atlas
+[mongodb](https://docs.atlas.mongodb.com/)
+
 ```
