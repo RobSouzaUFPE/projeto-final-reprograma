@@ -26,9 +26,25 @@
       }
     },
     "/clinica/profissional/login": {
-      "get": {
+      "post": {
         "description": "",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "example": "any"
+                },
+                "senha": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -183,7 +199,7 @@
                 "horario_atendimento": {
                   "example": "any"
                 },
-                "data_entrada": {
+                "dataEntrada": {
                   "example": "any"
                 }
               }
@@ -217,6 +233,9 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
           },
           "500": {
             "description": "Internal Server Error"
@@ -300,6 +319,9 @@
               "type": "object",
               "properties": {
                 "profissionalId": {
+                  "example": "any"
+                },
+                "pacienteId": {
                   "example": "any"
                 },
                 "finalidade_atendimento": {
@@ -465,9 +487,6 @@
                 "idade": {
                   "example": "any"
                 },
-                "funcao": {
-                  "example": "any"
-                },
                 "restricoes": {
                   "example": "any"
                 },
@@ -607,6 +626,17 @@
           },
           "500": {
             "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/clinica/": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       }
