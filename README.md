@@ -4,6 +4,10 @@
 
 <h1 align="center">Turma Online 19 - Todas em Tech | Back-end | 2022 | ROBERTA SOUZA</h1>
 
+
+<p align="center">
+   <img src="http://img.shields.io/static/v1?label=STATUS&message=SEMPRE%20PODE%20MELHORAR&color=RED&style=for-the-badge" #vitrinedev/>
+</p> 
 ## Sumário:
 
 - [Contato que educa](#contato-que-educa)
@@ -15,22 +19,26 @@
     - [Outras dependências](#outras-dependências)
   - [Arquitetura](#arquitetura)
   - [Rotas utilizadas](#rotas-utilizadas)
-    - [Material da aula](#material-da-aula)
-    - [Glossário](#glossário)
-    - [Links Úteis](#links-úteis)
-    - - [Métodos HTTP: GET + POST](#métodos-http-get--post)
-  - [Esse curso seguirá a convenção de comunicação API RESTful]
-    - 
+    - [Get](#get)
+    - [Post](#post)
+    - [Put](#put)
+    - [Delete](#delete)
+  - [Contribuições](#contribuições)
+  - [Licença](#licença)
+  - [Referências](#referências)
+  - [Autor(a)](#autor(a))
+  - [Agradecimento](#autor(a))
+  
 
-# Contato que educa:
+## Contato que educa:
 
-## O que é:
+### O que é:
 É um projeto que surguiu como uma demanda por um repositório para armazenamento e consulta de informações construídas a partir da interação entre os profissionais: psicopedagogos, psicológos, fisioterapeutas e pedagogos e crianças em uma clínica que presta o serviço terapia para as mesmas.
-## Como funciona?
+### Como funciona?
 A princípio deve ser criado o perfil com dados dos pacientes e dos professores, com o elemento ID para cada um deles, a partir dessas informações é criado o relatório, tudo isso será armazenado no MongoDB.
-## Quem poderá usar esta solução?
+### Quem poderá usar esta solução?
 Como a dificuldade, ou problemática enfrentada pela Clínica é o de armazenar com segurança as informações dos atendimentos e também acessar os relatórios a fim de avaliar o desenvolvimento das crianças atendidas, está solução poderá ser usada pelo gestor e pelos profissionais que prestam o serviço terapeútico. A aplicação pode ser usada em ambientes web, onde requisições poderão ser realizadas tanto por usuários (clientes) quanto outros sistemas. 
-# Documentação
+## Documentação
 
 Para visualizar a documentação do projeto segue endereço do [swagger](https://swagger.io/) que foi utilizado para este fim:
 
@@ -202,7 +210,6 @@ Utilizando o método Delete para a exclusão dos dados cadastrais de um profissi
 ```
 ![readme (2)](https://user-images.githubusercontent.com/101438321/207943997-5ff88400-12b5-4321-8650-f9ffabf2cc3a.png)
 
-```
 ## Contribuições:
 
 Solicitações pull são bem-vindas. Para mudanças importantes, abra um problema primeiro para discutir o que você gostaria de mudar.
@@ -229,3 +236,14 @@ Links úteis:
 [mongodb](https://insomnia.rest/)
 
 ```
+## Autor(a)
+<h4 align="center">Feito com muito ❤️ por Roberta Souza 👋🏽!</h4>
+
+## Agradecimentos
+
+Eu agradeço a {Reprograma}❤️ por ter me dado a oportunidade de participar deste lindo projeto de capacitação na área de tecnologia, foi estramamente enriquecedor participar. Também gostaria de agradecer a disposição, paciência e todo conhecimento transmitido em forma de aula por cada uma das professoras ❤️ que sempre trouxeram mais do que código, mas a importância de fazermos da melhor forma, praticando e fazendo da colaboração uma forma de estudar e ajudar ao mesmo tempo umas as outras.
+A cada uma das mulheres participantes da ON19 eu espero sinceramente que todas sem excessão sejam muito felizes na área que atuarem, que todas pensem no ambiente tecnológico um futuro promissor e com muitas possibilidades, a programação é uma delas, parabéns meninas, chegamos até aqui.❤️❤️❤️❤️
+
+</p>
+
+<h4 align="center"> 🚀🚀O céu é o limite ON19 🚀🚀</h4>
