@@ -96,7 +96,7 @@ test("Rota Get - Listar por função", (done) => {
 });
 
 describe("Nome repetido rota post, inserir profissional no BD.", () => {
-    test("/clinica/profissional/add", (done) =>{
+    test("/clinica/profissional/add - nome existe", (done) =>{
         request(app)
         .post("/clinica/profissional/add")
         .send({
@@ -107,9 +107,9 @@ describe("Nome repetido rota post, inserir profissional no BD.", () => {
 	        horario_atendimento:["manhã"],
             data_entrada: 2021
         })
-        .expect(201)
+        .expect(409)
         .expect(res => {
-            expect(res.body.msg).toBe(`O nome ${nome} já consta em nossa banco de dados.`)
+            expect(res.body.msg).toBe(`O nome ${profissionais.nome} já consta em nossa banco de dados.`)
         })
         .end((err,res) => {
             elementId = res.body._id;
@@ -138,11 +138,11 @@ describe("Delete - Deletar dados dos profissionais do banco de dados:", () => {
 describe("Delete - Deletar dados dos profissionais do banco de dados:", () => {
     test("/clinica/profissional/delete/", (done) =>{
         request(app)
-        .delete(`/clinica/profissional/delete/${elementId}`)
-        .expect(200)
+        .delete(`/profissional/delete/${elementId}`)        
         .expect((res) =>{
-            expect(res.body.message).not.toBe("Dados do profissional deletado com sucesso.")
+            expect(res.body.message).toBe("Dados do profissional deletado com sucesso.")
         })
+        .expect(200)
         .end((err,res) =>{
             if(err) return done(err)
             return done()
