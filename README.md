@@ -200,14 +200,8 @@ Utilizando o método Delete para a exclusão dos dados cadastrais de um profissi
 	"message": "Dados do profissional deletado com sucesso."
 }
 ```
-<h1 align="center">![readme](https://user-images.githubusercontent.com/101438321/207937788-1782366b-f5ea-46c1-a655-6b19b8bf1669.png)</h1>
+![readme](https://user-images.githubusercontent.com/101438321/207937788-1782366b-f5ea-46c1-a655-6b19b8bf1669.png)
 
-## Documentação
-
-Para visualizar a documentação e as rotas citadas anteriormente, segue o endereço do [swagger](https://swagger.io/) que foi utilizado para este fim no link abaixo:
-
-```bash
-http://localhost:3030/rota-de-documentacao-clinica/
 ```
 ## Contribuições:
 
@@ -215,7 +209,7 @@ Solicitações pull são bem-vindas. Para mudanças importantes, abra um problem
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+[ISC](https://opensource.org/licenses/ISC)
 
 ## Referências:
 
